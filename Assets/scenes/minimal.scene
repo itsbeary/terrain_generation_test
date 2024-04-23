@@ -1,0 +1,259 @@
+{
+  "__guid": "9f832399-4887-46b0-8f21-2ee284f538e2",
+  "GameObjects": [
+    {
+      "__guid": "bfc59c12-1ed2-4f91-8956-a95a315eac3c",
+      "Name": "Sun",
+      "Position": "278.7067,86.2736,179.614",
+      "Rotation": "-0.0729315,0.4822396,0.1305433,0.8631827",
+      "Tags": "light_directional,light",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "Components": [
+        {
+          "__type": "Sandbox.DirectionalLight",
+          "__guid": "bec3e54b-410e-47e3-a911-7901ec79f03f",
+          "FogMode": "Enabled",
+          "FogStrength": 1,
+          "LightColor": "0.9907,0.98471,0.9308,1",
+          "Shadows": true,
+          "SkyColor": "0.49722,0.68977,0.78605,1"
+        }
+      ]
+    },
+    {
+      "__guid": "00344a8c-fa5e-45ae-b12a-10bb781a1dc3",
+      "Name": "2D Skybox",
+      "Tags": "skybox",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "Components": [
+        {
+          "__type": "Sandbox.SkyBox2D",
+          "__guid": "05feeada-330f-438f-99aa-a8d1e460ae1c",
+          "SkyMaterial": "materials/error.vmat",
+          "Tint": "1,1,1,1"
+        },
+        {
+          "__type": "Sandbox.EnvmapProbe",
+          "__guid": "82fd6dfb-9f7c-446c-a042-99dbb310d092",
+          "Texture": "textures/cubemaps/default2.vtex",
+          "Bounds": {
+            "Mins": "-512,-512,-512",
+            "Maxs": "512,512,512"
+          },
+          "DelayBetweenUpdates": 0.1,
+          "Feathering": 0.02,
+          "FrameInterval": 5,
+          "MaxDistance": 512,
+          "Projection": "Sphere",
+          "RenderDynamically": true,
+          "TintColor": "0.76744,0,0,0.33",
+          "UpdateStrategy": "OnEnabled",
+          "ZFar": 4096,
+          "ZNear": 16
+        }
+      ]
+    },
+    {
+      "__guid": "7f00f9ca-513f-4b66-810d-3b04862f1c0c",
+      "Name": "Terrain Generator",
+      "Position": "-393.6789,-49.54015,179.1256",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "Components": [
+        {
+          "__type": "TerrainManager",
+          "__guid": "052282ba-1802-4b67-a253-465f0fd95e22",
+          "terrain": {
+            "_type": "component",
+            "component_id": "ff2af9bd-5dff-4f80-a126-86170947f6a4",
+            "go": "6c8ad456-16cb-4c4c-9bed-dd4c0bba8a48",
+            "component_type": "Terrain"
+          }
+        }
+      ]
+    },
+    {
+      "__guid": "6c8ad456-16cb-4c4c-9bed-dd4c0bba8a48",
+      "Name": "Terrain",
+      "Position": "-393.9055,600.3744,242.4683",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "Components": [
+        {
+          "__type": "Sandbox.Terrain",
+          "__guid": "ff2af9bd-5dff-4f80-a126-86170947f6a4",
+          "ClipMapLodExtentTexels": 128,
+          "ClipMapLodLevels": 7,
+          "DebugView": "None",
+          "RenderType": "Off",
+          "TerrainDataFile": "new terrain 2.terrain",
+          "TerrainMaterial": "materials/core/terrain.vmat"
+        },
+        {
+          "__type": "Sandbox.TerrainCollider",
+          "__guid": "f43e5ade-da8f-426b-bded-8f567dabf1de",
+          "IsTrigger": false,
+          "Static": true
+        }
+      ]
+    },
+    {
+      "__guid": "dc35ba01-79ea-420a-856a-087087471b23",
+      "Name": "Player",
+      "Position": "4260.52,4924.764,610.7238",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "Components": [
+        {
+          "__type": "PlayerController",
+          "__guid": "2f44c1e0-115e-4bc7-92b3-e153512dd127",
+          "AnimationHelper": {
+            "_type": "component",
+            "component_id": "a957eb8f-bc89-473b-861a-b8e2792d6a69",
+            "go": "6369dc82-1d69-4389-9aa0-032c62eea9db",
+            "component_type": "CitizenAnimationHelper"
+          },
+          "CharacterController": {
+            "_type": "component",
+            "component_id": "def3cfd8-f24d-4cd4-9e9a-6b1028ec7067",
+            "go": "dc35ba01-79ea-420a-856a-087087471b23",
+            "component_type": "CharacterController"
+          },
+          "CrouchMoveSpeed": 64,
+          "RunMoveSpeed": 190,
+          "SprintMoveSpeed": 320,
+          "terrainManager": {
+            "_type": "component",
+            "component_id": "052282ba-1802-4b67-a253-465f0fd95e22",
+            "go": "7f00f9ca-513f-4b66-810d-3b04862f1c0c",
+            "component_type": "TerrainManager"
+          },
+          "WalkMoveSpeed": 190
+        },
+        {
+          "__type": "Sandbox.CharacterController",
+          "__guid": "def3cfd8-f24d-4cd4-9e9a-6b1028ec7067",
+          "Acceleration": 10,
+          "Bounciness": 0.3,
+          "GroundAngle": 45,
+          "Height": 64,
+          "IgnoreLayers": "",
+          "Radius": 16,
+          "StepHeight": 18
+        }
+      ],
+      "Children": [
+        {
+          "__guid": "6369dc82-1d69-4389-9aa0-032c62eea9db",
+          "Name": "Model",
+          "Position": "0,0,0",
+          "Enabled": true,
+          "NetworkMode": 2,
+          "Components": [
+            {
+              "__type": "Sandbox.SkinnedModelRenderer",
+              "__guid": "ced381c9-9ce3-4eb6-9533-dbdee7f91f07",
+              "BodyGroups": 341,
+              "CreateBoneObjects": false,
+              "Model": "models/citizen/citizen.vmdl",
+              "RenderType": "On",
+              "Tint": "1,1,1,1"
+            },
+            {
+              "__type": "Sandbox.Citizen.CitizenAnimationHelper",
+              "__guid": "a957eb8f-bc89-473b-861a-b8e2792d6a69",
+              "BodyWeight": 1,
+              "EyesWeight": 1,
+              "HeadWeight": 1,
+              "LookAtEnabled": false,
+              "Target": {
+                "_type": "component",
+                "component_id": "ced381c9-9ce3-4eb6-9533-dbdee7f91f07",
+                "go": "6369dc82-1d69-4389-9aa0-032c62eea9db",
+                "component_type": "SkinnedModelRenderer"
+              }
+            }
+          ]
+        },
+        {
+          "__guid": "24bd1c92-105e-4580-b661-003277f9c559",
+          "Name": "Camera",
+          "Position": "0,0,0",
+          "Tags": "maincamera",
+          "Enabled": true,
+          "NetworkMode": 2,
+          "Components": [
+            {
+              "__type": "Sandbox.CameraComponent",
+              "__guid": "0f1a9dab-9cbe-4ee3-9c44-1a544aa22708",
+              "BackgroundColor": "0.33333,0.46275,0.52157,1",
+              "ClearFlags": "All",
+              "FieldOfView": 60,
+              "IsMainCamera": true,
+              "Orthographic": false,
+              "OrthographicHeight": 1204,
+              "Priority": 1,
+              "RenderExcludeTags": "",
+              "RenderTags": "",
+              "TargetEye": "None",
+              "Viewport": "0,0,1,1",
+              "ZFar": 10000,
+              "ZNear": 10
+            }
+          ]
+        },
+        {
+          "__guid": "af2772e0-65c3-48ae-943d-9c3e79904bb5",
+          "Name": "Screen",
+          "Position": "0,0,0",
+          "Enabled": true,
+          "NetworkMode": 2,
+          "Components": [
+            {
+              "__type": "Sandbox.ScreenPanel",
+              "__guid": "3bb8b216-0053-4132-aeb2-0a789eed9253",
+              "AutoScreenScale": true,
+              "Opacity": 1,
+              "Scale": 1,
+              "ZIndex": 100
+            },
+            {
+              "__type": "PlayerUI",
+              "__guid": "0d46570b-3f89-4138-adc4-b2895d2aea1a",
+              "Message": "Press your reload key to generate new terrain"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "SceneProperties": {
+    "FixedUpdateFrequency": 50,
+    "Lerping": true,
+    "MaxFixedUpdates": 5,
+    "NetworkFrequency": 60,
+    "ThreadedAnimation": true,
+    "TimeScale": 1,
+    "UseFixedUpdate": true,
+    "NavMesh": {
+      "Enabled": false,
+      "IncludeStaticBodies": true,
+      "IncludeKeyframedBodies": true,
+      "EditorAutoUpdate": true,
+      "AgentHeight": 64,
+      "AgentRadius": 16,
+      "AgentStepSize": 18,
+      "AgentMaxSlope": 40,
+      "ExcludedBodies": "",
+      "IncludedBodies": ""
+    }
+  },
+  "Title": "minimal",
+  "Description": "",
+  "LastSaved": "2024-04-23T21:13:23.0472493\u002B12:00",
+  "ResourceVersion": 1,
+  "__version": 1,
+  "__references": []
+}
