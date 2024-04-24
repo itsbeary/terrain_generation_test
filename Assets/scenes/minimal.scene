@@ -15,43 +15,9 @@
           "__guid": "bec3e54b-410e-47e3-a911-7901ec79f03f",
           "FogMode": "Enabled",
           "FogStrength": 1,
-          "LightColor": "0.9907,0.98471,0.9308,1",
+          "LightColor": "0.95349,0.93353,0.75392,1",
           "Shadows": true,
           "SkyColor": "0.49722,0.68977,0.78605,1"
-        }
-      ]
-    },
-    {
-      "__guid": "00344a8c-fa5e-45ae-b12a-10bb781a1dc3",
-      "Name": "2D Skybox",
-      "Tags": "skybox",
-      "Enabled": true,
-      "NetworkMode": 2,
-      "Components": [
-        {
-          "__type": "Sandbox.SkyBox2D",
-          "__guid": "05feeada-330f-438f-99aa-a8d1e460ae1c",
-          "SkyMaterial": "materials/error.vmat",
-          "Tint": "1,1,1,1"
-        },
-        {
-          "__type": "Sandbox.EnvmapProbe",
-          "__guid": "82fd6dfb-9f7c-446c-a042-99dbb310d092",
-          "Texture": "textures/cubemaps/default2.vtex",
-          "Bounds": {
-            "Mins": "-512,-512,-512",
-            "Maxs": "512,512,512"
-          },
-          "DelayBetweenUpdates": 0.1,
-          "Feathering": 0.02,
-          "FrameInterval": 5,
-          "MaxDistance": 512,
-          "Projection": "Sphere",
-          "RenderDynamically": true,
-          "TintColor": "0.76744,0,0,0.33",
-          "UpdateStrategy": "OnEnabled",
-          "ZFar": 4096,
-          "ZNear": 16
         }
       ]
     },
@@ -65,11 +31,26 @@
         {
           "__type": "TerrainManager",
           "__guid": "052282ba-1802-4b67-a253-465f0fd95e22",
+          "grassDensity": 30000,
+          "grassDistance": 2500,
+          "playerTransform": {
+            "_type": "gameobject",
+            "go": "dc35ba01-79ea-420a-856a-087087471b23"
+          },
+          "treeDensity": 100,
+          "grass": {
+            "_type": "gameobject",
+            "prefab": "materials/grass/grass.prefab"
+          },
           "terrain": {
             "_type": "component",
             "component_id": "ff2af9bd-5dff-4f80-a126-86170947f6a4",
             "go": "6c8ad456-16cb-4c4c-9bed-dd4c0bba8a48",
             "component_type": "Terrain"
+          },
+          "tree": {
+            "_type": "gameobject",
+            "prefab": "models/alantree.prefab"
           }
         }
       ]
@@ -77,7 +58,6 @@
     {
       "__guid": "6c8ad456-16cb-4c4c-9bed-dd4c0bba8a48",
       "Name": "Terrain",
-      "Position": "-393.9055,600.3744,242.4683",
       "Enabled": true,
       "NetworkMode": 2,
       "Components": [
@@ -181,16 +161,16 @@
           "__guid": "24bd1c92-105e-4580-b661-003277f9c559",
           "Name": "Camera",
           "Position": "0,0,0",
-          "Tags": "maincamera",
+          "Tags": "maincamera,skybox",
           "Enabled": true,
           "NetworkMode": 2,
           "Components": [
             {
               "__type": "Sandbox.CameraComponent",
               "__guid": "0f1a9dab-9cbe-4ee3-9c44-1a544aa22708",
-              "BackgroundColor": "0.33333,0.46275,0.52157,1",
+              "BackgroundColor": "1000,1000,1000,0",
               "ClearFlags": "All",
-              "FieldOfView": 60,
+              "FieldOfView": 90,
               "IsMainCamera": true,
               "Orthographic": false,
               "OrthographicHeight": 1204,
@@ -227,6 +207,22 @@
           ]
         }
       ]
+    },
+    {
+      "__guid": "ed7033bd-a738-43f7-9bd3-c588a45d46b4",
+      "Name": "Skybox",
+      "Position": "-1601.631,406.5034,506.912",
+      "Tags": "skybox",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "Components": [
+        {
+          "__type": "Sandbox.SkyBox2D",
+          "__guid": "00126796-cd79-46b1-aa87-15afb3ba4b35",
+          "SkyMaterial": "materials/skybox/skybox_day_01.vmat",
+          "Tint": "1,1,1,1"
+        }
+      ]
     }
   ],
   "SceneProperties": {
@@ -252,7 +248,7 @@
   },
   "Title": "minimal",
   "Description": "",
-  "LastSaved": "2024-04-24T12:55:46.1687131\u002B12:00",
+  "LastSaved": "2024-04-24T17:11:11.9581376\u002B12:00",
   "ResourceVersion": 1,
   "__version": 1,
   "__references": []

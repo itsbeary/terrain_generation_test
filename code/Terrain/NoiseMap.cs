@@ -3,8 +3,8 @@ using System;
 public sealed class NoiseMap
 {
 
-	private int mapWidth;
-	private int mapHeight;
+	public int mapWidth;
+	public int mapHeight;
 
 	private int seed;
 
@@ -46,6 +46,7 @@ public sealed class NoiseMap
 
 				float value = CalculateFalloff( sampleX, sampleY );
 				float newHeight = terrain.TerrainData.GetHeight( x, y ) * value;
+				
 				terrain.TerrainData.SetHeight( x, y, Convert.ToUInt16( newHeight ) );
 			}
 		}

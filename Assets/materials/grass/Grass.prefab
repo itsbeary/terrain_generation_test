@@ -1,0 +1,27 @@
+{
+  "RootObject": {
+    "__guid": "f7843c74-4763-4bb3-8faf-ace62b7a4812",
+    "Name": "grass",
+    "Scale": "0.1,0.1,0.1",
+    "Tags": "grass",
+    "NetworkMode": 0,
+    "Components": [
+      {
+        "__type": "Sandbox.ModelRenderer",
+        "__guid": "3236ccd3-2ff0-435a-8cdc-38bfee10f662",
+        "BodyGroups": 18446744073709551615,
+        "MaterialOverride": "materials/grass/leaf.vmat",
+        "Model": "materials/grass/grass_model.vmdl",
+        "RenderType": "Off",
+        "Tint": "1,1,1,1"
+      }
+    ],
+    "Children": []
+  },
+  "ShowInMenu": false,
+  "MenuPath": null,
+  "MenuIcon": null,
+  "ResourceVersion": 1,
+  "__version": 1,
+  "__references": []
+}

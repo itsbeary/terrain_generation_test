@@ -1,0 +1,27 @@
+{
+  "RootObject": {
+    "__guid": "4dde9536-01db-4430-9afe-8437de1ed9c0",
+    "Name": "alantree",
+    "Scale": "10,10,10",
+    "Enabled": true,
+    "NetworkMode": 2,
+    "Components": [
+      {
+        "__type": "Sandbox.ModelRenderer",
+        "__guid": "95f74eb4-680a-4fb2-b369-51cda64c5b35",
+        "BodyGroups": 18446744073709551615,
+        "MaterialOverride": "models/humans/heads/adam/playermodelhead_adam.vmat",
+        "Model": "models/alantree.vmdl",
+        "RenderType": "On",
+        "Tint": "1,1,1,1"
+      }
+    ],
+    "Children": []
+  },
+  "ShowInMenu": false,
+  "MenuPath": null,
+  "MenuIcon": null,
+  "ResourceVersion": 1,
+  "__version": 1,
+  "__references": []
+}
