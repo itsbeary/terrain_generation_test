@@ -45,7 +45,8 @@ public sealed class PlayerController : Component
 		if(Input.Pressed("reload"))
 		{
 			Transform.Position = new Vector3( 4260, 4950, 610 );
-			terrainManager.GenerateMap();
+			_ = _ = terrainManager.runGeneration();
+
 		}
 	}
 

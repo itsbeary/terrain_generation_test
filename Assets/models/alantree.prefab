@@ -1,6 +1,6 @@
 {
   "RootObject": {
-    "__guid": "4dde9536-01db-4430-9afe-8437de1ed9c0",
+    "__guid": "3db84a05-e333-47a2-bc42-cf35951b8268",
     "Name": "alantree",
     "Scale": "10,10,10",
     "Enabled": true,
@@ -8,12 +8,21 @@
     "Components": [
       {
         "__type": "Sandbox.ModelRenderer",
-        "__guid": "95f74eb4-680a-4fb2-b369-51cda64c5b35",
+        "__guid": "e51489ca-9df3-4d8e-af0f-641b2a08c6a9",
         "BodyGroups": 18446744073709551615,
         "MaterialOverride": "models/humans/heads/adam/playermodelhead_adam.vmat",
         "Model": "models/alantree.vmdl",
         "RenderType": "On",
         "Tint": "1,1,1,1"
+      },
+      {
+        "__type": "Sandbox.CapsuleCollider",
+        "__guid": "16a8b132-e7fb-42d3-9608-db27e71d2b24",
+        "End": "0.2,0,29.20006",
+        "IsTrigger": false,
+        "Radius": 2.8,
+        "Start": "0.2,0,0",
+        "Static": false
       }
     ],
     "Children": []

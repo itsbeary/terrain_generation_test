@@ -3,6 +3,7 @@ using Sandbox.Internal;
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+using System.Threading.Tasks;
 using System.Xml.Schema;
 
 public sealed class TerrainManager : Component
@@ -39,7 +40,15 @@ public sealed class TerrainManager : Component
 	{
 		GameObject grassParent = new GameObject( true );
 		this.grassParent = grassParent;
+		//GenerateMap();
+	}
+	public async Task runGeneration()
+	{
 		GenerateMap();
+		await Task.DelaySeconds( 0.1f);
+		grassParent.Clear();
+		GenerateGrass();
+		GenerateTrees();
 	}
 
 	protected override void OnFixedUpdate()
@@ -87,13 +96,10 @@ public sealed class TerrainManager : Component
 		noiseMap = new NoiseMap( seed, heightSizeHalf, heightSizeHalf );
 		noiseMap.GeneratePerlin( terrain );
 		noiseMap.GenerateFalloff( terrain );
-		for(int i = 0; i < 5; i++ )
-			noiseMap.ApplySmoothing( terrain );
+		noiseMap.ApplySmoothing( terrain );
 		terrain.SyncHeightMap();
 
-		grassParent.Clear();
-		GenerateGrass();
-		GenerateTrees();
+
 	}
 
 	private void GenerateGrass()

@@ -182,27 +182,29 @@
               "ZFar": 10000,
               "ZNear": 10
             }
-          ]
-        },
-        {
-          "__guid": "af2772e0-65c3-48ae-943d-9c3e79904bb5",
-          "Name": "Screen",
-          "Position": "0,0,0",
-          "Enabled": true,
-          "NetworkMode": 2,
-          "Components": [
+          ],
+          "Children": [
             {
-              "__type": "Sandbox.ScreenPanel",
-              "__guid": "3bb8b216-0053-4132-aeb2-0a789eed9253",
-              "AutoScreenScale": true,
-              "Opacity": 1,
-              "Scale": 1,
-              "ZIndex": 100
-            },
-            {
-              "__type": "PlayerUI",
-              "__guid": "0d46570b-3f89-4138-adc4-b2895d2aea1a",
-              "Message": "Press your reload key to generate new terrain"
+              "__guid": "7eca628e-6e24-4726-8563-251511d50b42",
+              "Name": "Screen",
+              "Position": "0,0,0",
+              "Enabled": true,
+              "NetworkMode": 2,
+              "Components": [
+                {
+                  "__type": "Sandbox.ScreenPanel",
+                  "__guid": "24624d2d-132b-457a-980e-d5f8d76d5c48",
+                  "AutoScreenScale": true,
+                  "Opacity": 1,
+                  "Scale": 1,
+                  "ZIndex": 100
+                },
+                {
+                  "__type": "PlayerUI",
+                  "__guid": "afaacdd3-7cdb-415a-9dc8-4d76f01cdb2f",
+                  "Message": "Press your reload key to generate new terrain"
+                }
+              ]
             }
           ]
         }
@@ -248,7 +250,7 @@
   },
   "Title": "minimal",
   "Description": "",
-  "LastSaved": "2024-04-24T17:11:11.9581376\u002B12:00",
+  "LastSaved": "2024-04-24T17:31:29.9252526\u002B12:00",
   "ResourceVersion": 1,
   "__version": 1,
   "__references": []
