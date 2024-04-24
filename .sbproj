@@ -1,7 +1,7 @@
 {
   "Title": "terrain generation test",
   "Type": "game",
-  "Org": "local",
+  "Org": "kea",
   "Ident": "terrain_generation_test",
   "Tags": null,
   "Schema": 1,

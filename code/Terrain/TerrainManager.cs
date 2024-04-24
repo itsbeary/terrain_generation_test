@@ -21,11 +21,13 @@ public sealed class TerrainManager : Component
 		int heightSizeHalf = (int)terrain.TerrainData.HeightMapSize;
 		this.seed = (int)new Random().Int( 0, int.MaxValue - 1 ) / 100;
 		Log.Info( seed );
-		terrain.TerrainSize = 15000;
+		terrain.TerrainSize = 22500;
 		terrain.TerrainHeight = 315999;
 		noiseMap = new NoiseMap( seed, heightSizeHalf, heightSizeHalf );
 		noiseMap.GeneratePerlin( terrain );
 		noiseMap.GenerateFalloff( terrain );
+		for(int i = 0; i < 5; i++ )
+			noiseMap.ApplySmoothing( terrain );
 		terrain.SyncHeightMap();
 
 	}

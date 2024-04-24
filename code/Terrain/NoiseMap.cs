@@ -1,3 +1,4 @@
+using Sandbox.Utility;
 using System;
 public sealed class NoiseMap
 {
@@ -16,14 +17,11 @@ public sealed class NoiseMap
 
 	public void GeneratePerlin( Terrain terrain )
 	{
-		// Set perlin seed if it hasn't already
-		Noise.PerlinSetSeed( seed );
-
 		int start = DateTime.Now.Millisecond;
 		for ( int y = 0; y < mapHeight; y++ )
 			for ( int x = 0; x < mapWidth; x++ )
 			{
-				float originalPerlin = Noise.Perlin( x, y );
+				float originalPerlin = Noise.Perlin( x + seed, y + seed);
 
 				ushort perlinValue = Convert.ToUInt16( originalPerlin * 100 );
 				terrain.TerrainData.SetHeight( x, y, perlinValue );
@@ -53,6 +51,31 @@ public sealed class NoiseMap
 		}
 
 		Log.Warning( "GenerateFallOff Method took " + (DateTime.Now.Millisecond - start) + "ms to finish" );
+	}
+
+	public void ApplySmoothing( Terrain terrain )
+	{
+		int start = DateTime.Now.Millisecond;
+		for ( int x = 1; x < mapWidth - 1; x++ )
+			for ( int y = 1; y < mapHeight - 1; y++ )
+			{
+				// Calculate the average of neighboring height values
+				float averageHeight = (
+					terrain.TerrainData.GetHeight( x - 1, y - 1 ) +
+					terrain.TerrainData.GetHeight( x - 1, y ) +
+					terrain.TerrainData.GetHeight( x - 1, y + 1 ) +
+					terrain.TerrainData.GetHeight( x, y - 1 ) +
+					terrain.TerrainData.GetHeight( x, y ) +
+					terrain.TerrainData.GetHeight( x, y + 1 ) +
+					terrain.TerrainData.GetHeight( x + 1, y - 1 ) +
+					terrain.TerrainData.GetHeight( x + 1, y ) +
+					terrain.TerrainData.GetHeight( x + 1, y + 1 )
+				) / 9f;
+
+				// Assign the average height to the corresponding position in the temporary array
+				terrain.TerrainData.SetHeight( x, y, Convert.ToUInt16( averageHeight ));
+			}
+		Log.Warning( "ApplySmoothing Method took " + (DateTime.Now.Millisecond - start) + "ms to finish" );
 	}
 
 	private float CalculateFalloff( float x, float y )

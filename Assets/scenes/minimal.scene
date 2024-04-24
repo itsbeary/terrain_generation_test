@@ -137,10 +137,10 @@
           "__guid": "def3cfd8-f24d-4cd4-9e9a-6b1028ec7067",
           "Acceleration": 10,
           "Bounciness": 0.3,
-          "GroundAngle": 45,
+          "GroundAngle": 90,
           "Height": 64,
           "IgnoreLayers": "",
-          "Radius": 16,
+          "Radius": 0,
           "StepHeight": 18
         }
       ],
@@ -252,7 +252,7 @@
   },
   "Title": "minimal",
   "Description": "",
-  "LastSaved": "2024-04-23T21:13:23.0472493\u002B12:00",
+  "LastSaved": "2024-04-24T12:55:46.1687131\u002B12:00",
   "ResourceVersion": 1,
   "__version": 1,
   "__references": []
